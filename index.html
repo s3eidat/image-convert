@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Image Convert — Free PNG, JPG, WebP Converter | S3eidat Tools</title>
+<meta name="description" content="Convert images between PNG, JPG and WebP in bulk, in your browser. Reads PNG, JPG, WebP, GIF, BMP and SVG. Background color for transparency, zip download. Nothing uploaded.">
+<meta property="og:title" content="Image Convert — free, private image format converter">
+<meta property="og:description" content="Convert PNG, JPG, WebP, GIF, BMP and SVG images in bulk. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="image-convert">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Image Convert</h1>
+    <p>Convert images between PNG, JPG and WebP, many at once. Reads PNG, JPG, WebP, GIF, BMP and SVG. Everything happens on your device.</p>
+  </section>
+
+  <div class="cv-grid">
+    <section class="card stack">
+      <label class="drop" id="drop">
+        <input type="file" accept="image/*,.svg,.bmp" multiple hidden>
+        <svg class="i"><use href="#i-upload"/></svg>
+        <b>Drop images here</b>
+        <span class="faint">PNG · JPG · WebP · GIF · BMP · SVG · or paste</span>
+      </label>
+      <div class="field-g">
+        <span class="lbl" id="fmt-l">Convert to</span>
+        <div class="seg" id="format" role="group" aria-labelledby="fmt-l">
+          <button aria-pressed="true" data-v="png">PNG</button>
+          <button aria-pressed="false" data-v="jpeg">JPG</button>
+          <button aria-pressed="false" data-v="webp">WebP</button>
+          <button aria-pressed="false" data-v="avif" hidden>AVIF</button>
+        </div>
+      </div>
+      <label class="field" id="qfield">
+        <span class="row between"><span>Quality</span><output id="qv" class="mono">92%</output></span>
+        <input type="range" id="quality" min="5" max="100" value="92">
+      </label>
+      <div class="field-g">
+        <span class="lbl">Background for transparent areas</span>
+        <div class="row">
+          <input type="color" id="bg" value="#ffffff" aria-label="Background color">
+          <span class="mono faint" id="bgv">#ffffff</span>
+        </div>
+        <label class="check"><input type="checkbox" id="flatten"> Also fill transparency in PNG / WebP</label>
+        <span class="faint">JPG has no transparency, so transparent pixels always get this color.</span>
+      </div>
+    </section>
+
+    <section class="card stack">
+      <div class="row between">
+        <h2>Converted <small id="count"></small></h2>
+        <div class="row">
+          <button class="btn ghost small" id="clear" disabled><svg class="i"><use href="#i-trash"/></svg>Clear</button>
+          <button class="btn primary small" id="zip" disabled><svg class="i"><use href="#i-download"/></svg>Download all (.zip)</button>
+        </div>
+      </div>
+      <div class="empty" id="empty"><b>No images yet</b>Drop files on the left and pick a format. Animated GIFs use their first frame.</div>
+      <ul class="cv-tiles" id="tiles"></ul>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
